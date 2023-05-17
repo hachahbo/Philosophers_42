@@ -6,13 +6,13 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 11:38:17 by hachahbo          #+#    #+#              #
-#    Updated: 2023/05/13 23:04:00 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/05/17 12:10:24 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philosophers
 CC = cc
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -fsanitize=thread -Werror -Wall -Wextra 
 
 SRS = philosophers.c ft_change_the_type_1.c ft_parcing.c \
 		ft_change_the_type_2.c ft_parcing2.c 
@@ -23,9 +23,6 @@ RM = rm -f
 
 LIBFT_DIR = ./libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
-
-
-
 
 SRCS_LIBFT = ft_putstr_fd.c \
 ft_calloc.c ft_isalnum.c ft_isalpha.c \
@@ -48,11 +45,12 @@ all : $(NAME)
 	@echo "  / /_/ / / / / / / /_/ (__  ) /_/ / /_/ / / / /  __/ /  (__  ) "
 	@echo " / .___/_/ /_/_/_/\____/____/\____/ .___/_/ /_/\___/_/  /____/  "
 	@echo "/_/                              /_/                            "
+	
 $(NAME) : $(OBJS)  $(LIBFT_OBJ) 
 	@make -C $(LIBFT_DIR)
 	 $(CC) $(CFLAGS) $(OBJS) $(LIBFT_LIB) -o $@
 	
-%.o : %.c push_swap.h libft/libft.h
+%.o : %.c libft/libft.h
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 bonus : all $(NAME_BONUS)

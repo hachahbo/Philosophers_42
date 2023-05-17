@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:20:07 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/13 23:08:00 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/15 14:59:15 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ typedef  struct o_phil
 	pthread_t ph;
 	int last_eat_time;
 	int eat_count;
-	t_list data;
+	t_list *data;
 	long long last_eat;
 	pthread_mutex_t *death;
 	struct o_phil *next;
 }	t_philo;
+
 
 int				ft_isascii(int c);
 int				ft_isprint(int c);
