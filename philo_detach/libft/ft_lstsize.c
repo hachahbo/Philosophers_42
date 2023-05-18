@@ -1,50 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parcing.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 10:55:30 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/17 18:00:27 by hachahbo         ###   ########.fr       */
+/*   Created: 2022/10/19 08:55:27 by hachahbo          #+#    #+#             */
+/*   Updated: 2023/05/09 09:06:02 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "libft.h"
 
-int	ft_check_double(int *tab, s_ac *st)
-{
-	int	a;
-	int	b;
-
-	a = 0;
-	while (a < st->size)
-	{
-		b = a + 1;
-		while (b < st->size)
-		{
-			if (tab[a] == tab[b])
-				return (1);
-			b++;
-		}
-		a++;
-	}
-	return (0);
-}
-
-void	ft_parcing(char **tab, s_ac *st)
+int	ft_lstsize(t_philo *lst)
 {
 	int		i;
-	int		*arr;
+	t_philo	*tmp;
 
-	ft_parcing_1(tab);
-	ft_parcing_2(tab);
-	ft_parcing_3(tab);
-	arr = malloc(sizeof(int) * st->size);
 	i = 0;
-	while (tab[i])
+	tmp = lst;
+	while (tmp)
 	{
-		arr[i] = ft_atoi(tab[i]);
+		tmp = tmp->next;
 		i++;
 	}
+	return (i);
 }
