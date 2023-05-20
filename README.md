@@ -17,4 +17,6 @@ we use this function to create the thread :
   we can create multi threads from one process and And vice versa is wrong.<br> 
   Since threads within a process share the same memory space and resources, they can easily communicate and share data with each other.
   
+  ok!! so let's continue the explination of this project . <br>
+  we have hre an image refers to the subject theorem :
 <img width="912" alt="Screen Shot 2023-05-20 at 9 33 34 AM" src="https://github.com/hachahbo/Philosophers_42/assets/116384287/671c2150-d04a-4f63-b057-25e7deffd954">
