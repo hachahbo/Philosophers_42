@@ -9,5 +9,4 @@ we use this function to create the thread :
 <img width="1314" alt="Screen Shot 2023-05-20 at 5 39 57 AM" src="https://github.com/hachahbo/Philosophers_42/assets/116384287/2207fa8a-a66b-4065-bc5d-3cf9d086fce0">
 <br>
 Before we dive further , i have to explane what is the relation between threads and process  : <br>
-<br>
-![thread vs process](https://github.com/hachahbo/Philosophers_42/assets/116384287/2e124ad1-2f0c-4a73-bae9-d30e31fc9c18)
+![thread vs process](https://github.com/hachahbo/Philosophers_42/assets/116384287/4c4734c2-61ed-4953-bf43-8b108951234e)
