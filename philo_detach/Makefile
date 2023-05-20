@@ -6,17 +6,17 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 11:38:17 by hachahbo          #+#    #+#              #
-#    Updated: 2023/05/18 17:03:31 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/05/19 17:10:47 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philosophers
 CC = cc
-CFLAGS =  -Werror -Wall -Wextra #-fsanitize=thread -g
+CFLAGS =  -Werror -Wall -Wextra #-fsanitize=thread
 
 SRS = philosophers.c ft_change_the_type_1.c ft_parcing.c \
-		ft_change_the_type_2.c ft_parcing2.c 
-		
+		ft_change_the_type_2.c ft_parcing2.c ft_philo_helper_one.c \
+		routine.c
 OBJS = $(SRS:%.c=%.o)
 
 RM = rm -f

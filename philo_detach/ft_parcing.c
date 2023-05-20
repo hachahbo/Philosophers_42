@@ -6,13 +6,13 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 10:55:30 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/17 18:00:27 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/19 20:03:53 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	ft_check_double(int *tab, s_ac *st)
+int	ft_check_double(int *tab, t_ac *st)
 {
 	int	a;
 	int	b;
@@ -32,19 +32,9 @@ int	ft_check_double(int *tab, s_ac *st)
 	return (0);
 }
 
-void	ft_parcing(char **tab, s_ac *st)
+void	ft_parcing(char **tab)
 {
-	int		i;
-	int		*arr;
-
 	ft_parcing_1(tab);
 	ft_parcing_2(tab);
 	ft_parcing_3(tab);
-	arr = malloc(sizeof(int) * st->size);
-	i = 0;
-	while (tab[i])
-	{
-		arr[i] = ft_atoi(tab[i]);
-		i++;
-	}
 }

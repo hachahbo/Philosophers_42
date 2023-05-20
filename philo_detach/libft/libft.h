@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:20:07 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/17 14:40:58 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:44:10 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,27 @@
 
 typedef struct k_list
 {
-	int	philo_num;
-	int	t_die;
-	int	t_eat;
-	int	t_sleep;
-	int	eat_time;
-	long long t_begin;
-	
+	int			philo_num;
+	int			t_die;
+	int			t_eat;
+	int			t_sleep;
+	int			eat_time;
+	long long	t_begin;
 }	t_list;
 
-typedef  struct o_phil
+typedef struct o_phil
 {
-	int id;
-	pthread_mutex_t fork;
-	int *lock;
-	pthread_t ph;
-	int last_eat_time;
-	t_list *data;
-	long long last_eat;
-	pthread_mutex_t *death;
-	struct o_phil *next;
+	int				id;
+	pthread_mutex_t	fork;
+	int				*lock;
+	pthread_t		ph;
+	int				last_eat_time;
+	t_list			*data;
+	long long		last_eat;
+	int				meals;
+	pthread_mutex_t	*death;
+	struct o_phil	*next;
 }	t_philo;
-
 
 int				ft_isascii(int c);
 int				ft_isprint(int c);

@@ -6,14 +6,13 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 16:47:55 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/17 12:16:23 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/19 19:45:02 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-
-void error_help(int a)
+void	error_help(int a)
 {
 	(void)a;
 	printf("Error\n");

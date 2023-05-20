@@ -6,9 +6,15 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 05:21:14 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/08 02:09:55 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/19 19:37:27 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libc.h>
 
+int	main(int ac, char **av)
+{
+	(void)ac;
+	(void)av;
+	printf("test");
+}
