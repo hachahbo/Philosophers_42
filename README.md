@@ -16,4 +16,4 @@ we use this function to create the thread :
   A process can have one or more threads of execution. Threads are lightweight units of execution that operate within the context of a process. They share the same memory space, file descriptors, and other resources of the parent process. <br>
   Since threads within a process share the same memory space and resources, they can easily communicate and share data with each other.
   
-<img width="921" alt="Screen Shot 2023-05-20 at 9 31 41 AM" src="https://github.com/hachahbo/Philosophers_42/assets/116384287/0b0e25ff-e312-4f53-b901-a6508bc85c31">
+<img width="912" alt="Screen Shot 2023-05-20 at 9 33 34 AM" src="https://github.com/hachahbo/Philosophers_42/assets/116384287/671c2150-d04a-4f63-b057-25e7deffd954">
