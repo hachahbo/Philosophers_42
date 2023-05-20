@@ -12,4 +12,5 @@ we use this function to create the thread :
 
 ![thread vs process](https://github.com/hachahbo/Philosophers_42/assets/116384287/4e01bcde-eea7-4925-af0c-103f5669d060)
   
- Threads and processes are related in the sense that threads are typically created within a process and operate within the context of that process. Here are some important aspects of their relationship
+ Threads and processes are related in the sense that threads are typically created within a process and operate within the context of that process. Here are some important aspects of their relationship .<br>
+  A process can have one or more threads of execution. Threads are lightweight units of execution that operate within the context of a process. They share the same memory space, file descriptors, and other resources of the parent process.
