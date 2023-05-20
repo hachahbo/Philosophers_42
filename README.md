@@ -2,7 +2,7 @@
  - Intorduction <br>
 what is this project talk about ?<br>
 The philosopher task is a task that directly implements the "eating philosopher problem", each philosopher reprsent a thread, so what is a thread ?<br>
-a thread refers to a squence of instractions that can be executed whith a program. the threads are enable the execution of multiple tasks concurrently. <br>
+a thread refers to a squence of instractions that can be executed within a program. the threads are enable the execution of multiple tasks concurrently. <br>
 so how we can creat a thread?
 in C, threads can be created by using the threading library,(pthread)library, wich providee functions for thread creation.<br>
 we use this function to create the thread :
