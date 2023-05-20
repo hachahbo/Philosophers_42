@@ -1,5 +1,5 @@
 # Philosophers_42
- <h1>- Intorduction
+ <h1>- Intorduction <h1> <br>
  what is this project talk about ?<br>
 The philosopher task is a task that directly implements the "eating philosopher problem", each philosopher reprsent a thread, so what is a thread ?<br>
 a thread refers to a squence of instractions that can be executed whith a program. the threads are enable the execution of multiple tasks concurrently. <br>
