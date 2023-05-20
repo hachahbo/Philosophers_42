@@ -11,3 +11,5 @@ we use this function to create the thread :
 <h4> Before we dive further , i have to explane what is the relation between threads and process  : <br> <h4>
 
 ![thread vs process](https://github.com/hachahbo/Philosophers_42/assets/116384287/4e01bcde-eea7-4925-af0c-103f5669d060)
+  
+ Threads and processes are related in the sense that threads are typically created within a process and operate within the context of that process. Here are some important aspects of their relationship
