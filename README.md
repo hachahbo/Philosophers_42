@@ -22,4 +22,8 @@ we use this function to create the thread :
   
 <img width="912" alt="Screen Shot 2023-05-20 at 9 33 34 AM" src="https://github.com/hachahbo/Philosophers_42/assets/116384287/671c2150-d04a-4f63-b057-25e7deffd954">
 
-so what is mutex 
+so what is mutex ?
+it is short for mutual exclusion this function used to protect shared ressources from concurrent access ny multiple threads, which means that only one  thread can access the protected  resource at any given time. there is to states (locked and undlocked . When a thread wants to access a shared resource, it first checks the state of the mutex. If the mutex is locked by another thread, the requesting thread will be blocked (put to sleep) until the mutex is unlocked. <br>
+we have to undrstand that when threads are created in memory and executed on a CPU, several things happen: <br>
+
+1- Memory Allocation: When a thread is created, the operating system allocates memory to store the thread's stack, which is used for local variables, function calls, and other thread-specific data. The stack is typically a contiguous block of memory specific to each thread. <br>
