@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:39:01 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/19 23:17:03 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:47:43 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	philosophers(t_philo *philo)
 	sem_t	*sem;
 	sem_t	*death;
 	pid_t	child_p;
-	
 
 	help = philo;
 	sem = sem_open("/fork", O_CREAT | O_EXCL, 0666, philo->data->philo_num);
@@ -37,17 +36,30 @@ int	philosophers(t_philo *philo)
 	while (i)
 	{
 		child_p = fork();
-		if(child_p == 0)
+		if (child_p == 0)
 		{
-			philo->pid= getpid();
 			philo->fork = sem;
 			philo->death = death;
 			routine(philo);
 		}
+		philo->pid = child_p;
 		philo = philo->next;
 		i--;
 	}
 	return (0);
+}
+
+void	kill_pid(t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < philo->data->philo_num)
+	{
+		kill(philo->pid, SIGTERM);
+		i++;
+		philo = philo->next;
+	}	
 }
 
 int	main(int ac, char **av)
@@ -55,7 +67,6 @@ int	main(int ac, char **av)
 	t_list			inpt;
 	t_philo			*philo;
 	int				*tab;
-	int				i;
 
 	if (ac != 5 && ac != 6)
 		return (0);
@@ -68,17 +79,7 @@ int	main(int ac, char **av)
 	philo = NULL;
 	mk_lst(&philo, inpt);
 	philosophers(philo);
-	// usleep(500);
-	waitpid(-1, 0, 0);
-	i = 0;
-	// while(i < philo->data->philo_num)
-	// {
-	// 	if(philo->pid != 0)
-	// 	{
-	// 		kill(philo->pid, SIGTERM);
-	// 	}
-	// 	i++;
-	// 	philo = philo->next;
-	// }
+	if (waitpid(-1, 0, 0) != -1)
+		kill_pid(philo);
 	return (0);
 }

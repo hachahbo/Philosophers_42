@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:39:01 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/19 16:12:16 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:27:39 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ int	main(int ac, char **av)
 	if (ac != 5 && ac != 6)
 		return (0);
 	tab = tableau(av, ac);
-	if (tab == 0)
-		return (0);
 	memset(&inpt, 0, sizeof(t_list));
 	lock = 0;
 	if (inits_st(&inpt, tab, ac))

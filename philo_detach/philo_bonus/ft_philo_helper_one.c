@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:48:13 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/19 23:01:33 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:52:08 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	link_lst(t_philo **head)
 		last = last-> next;
 	last -> next = first;
 }
+
 void	ft_m_sleep(long long t, t_philo *philo, long long time)
 {
 	long long	micro;

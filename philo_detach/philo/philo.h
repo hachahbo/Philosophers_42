@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:34:52 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/19 16:11:00 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:27:53 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,55 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <time.h>
-# include  "./libft/libft.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
+# include <fcntl.h>
+# include <pthread.h>
+# include <unistd.h>
+# include <sys/time.h>
+# include <time.h>
 
 typedef struct st_ac
 {
 	int	size;
 }	t_ac;
 
+typedef struct k_list
+{
+	int			philo_num;
+	int			t_die;
+	int			t_eat;
+	int			t_sleep;
+	int			eat_time;
+	long long	t_begin;
+}	t_list;
+
+typedef struct o_phil
+{
+	int				id;
+	pthread_mutex_t	fork;
+	int				*lock;
+	pthread_t		ph;
+	int				last_eat_time;
+	t_list			*data;
+	long long		last_eat;
+	int				meals;
+	pthread_mutex_t	*death;
+	struct o_phil	*next;
+}	t_philo;
+
+size_t		ft_strlen(const char *s);
+char		*ft_strdup(const char *s1);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
+long		ft_atoi(const char *str);
+int			ft_isdigit(int c);
+void		ft_lstadd_back(t_philo **lst, t_philo *new);
+t_philo		*ft_lstlast(t_philo *lst);
+t_philo		*ft_lstnew(int content);
+char		**ft_split(char const *s, char c);
+char		*ft_strjoin(char const *s1, char const *s2);
 int			check_char(char *c);
 int			ft_size(char **ult_str);
 char		*join_to_str(char **av, int ac);
@@ -44,6 +86,7 @@ int			ft_parcing_1(char **tab);
 int			ft_parcing_2(char **tab);
 int			ft_parcing_3(char **tab);
 int			ft_str_is_alpha(char *str);
+int			ft_isdigit(int c);
 int			philosophers(t_philo *philo);
 long long	get_time(int a);
 void		mk_lst(t_philo **h, t_list inpt, int *lock, pthread_mutex_t *mt_l);
@@ -56,5 +99,6 @@ int			activites_of_philos(t_philo *philo, unsigned long time);
 int			ft_think(long long time, t_philo *philo);
 int			ft_sleep(int x, unsigned long time, t_philo *philo);
 int			ft_eat(int x, unsigned long time, t_philo *philo);
+void		ft_lstclear(t_philo **lst);
 
 #endif

@@ -6,17 +6,19 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 11:38:17 by hachahbo          #+#    #+#              #
-#    Updated: 2023/06/19 21:41:17 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/06/21 12:55:24 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo_bonus
 CC = cc
-#CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra
 
 OBJS = philo_bonus.o ft_change_the_type_1.o ft_parcing.o \
 		ft_change_the_type_2.o ft_parcing2.o ft_philo_helper_one.o \
-		routine.o
+		routine.o ft_isdigit.o ft_split.o ft_strjoin.o ft_lstadd_back.o \
+		ft_atoi.o ft_lstlast.o ft_lstnew.o ft_strlen.o ft_substr.o ft_strdup.o\
+		activities.o
 
 RM = rm -f
 
@@ -29,17 +31,14 @@ all : $(NAME)
 	@echo "/_/                              /_/                            "
 
 $(NAME) : $(OBJS)
-	@cd libft && make 
-	@$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	
 $(OBJS) : philo_bonus.h
 
 clean : 
-	@cd libft && make clean
 	@$(RM) $(OBJS)
 
 fclean : clean
-	@cd libft && make fclean
 	@$(RM) $(NAME)
 	
 re : fclean all
