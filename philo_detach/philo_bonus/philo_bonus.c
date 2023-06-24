@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:39:01 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/21 12:47:43 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/06/24 08:20:26 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	kill_pid(t_philo *philo)
 		kill(philo->pid, SIGTERM);
 		i++;
 		philo = philo->next;
-	}	
+	}
+	exit(0);
 }
 
 int	main(int ac, char **av)

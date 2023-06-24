@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:08:33 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/21 12:45:27 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:41:41 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	*routine(void *arg)
 	time = philo->data->t_begin;
 	philo->last_eat = get_time(1);
 	if (philo->id % 2 == 0)
-		usleep(200);
+		ft_m_sleep(philo->data->t_eat, philo, time);
 	while (1)
 	{
 		if (!take_fork_and_eat(philo, time))
