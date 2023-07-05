@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:08:33 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/21 12:53:23 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/07/05 10:37:49 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ int	take_fork_and_eat(t_philo *philo, unsigned long time)
 	sem_wait(philo->fork);
 	ft_print_mutex(time, philo, "has taken a fork");
 	if (philo->data->philo_num == 1)
-		return (ft_print_mutex(time, philo, "died"), 0);
+	{
+		ft_print_mutex(get_time(1) - philo->data->t_die, philo, "died");
+		return (0);
+	}
 	sem_wait(philo->fork);
 	ft_print_mutex(time, philo, "has taken a fork");
 	if (philo->data->eat_time != 0)
@@ -77,7 +80,7 @@ int	routine(t_philo *philo)
 	time = philo->data->t_begin;
 	philo->last_eat = get_time(1);
 	if (philo->id % 2 == 0)
-		usleep(200);
+		ft_m_sleep(philo->data->t_eat, philo, time);
 	while (1)
 	{
 		if (!take_fork_and_eat(philo, time))

@@ -6,21 +6,21 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 11:38:17 by hachahbo          #+#    #+#              #
-#    Updated: 2023/06/23 14:38:42 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/07/05 10:09:46 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
-CFLAGS = -Werror -Wall -Wextra #-g -fsanitize=thread
+CCFLAGS = -Werror -Wall -Werror  #-fsanitize=thread
 
-OBJS = philo.o ft_change_the_type_1.o ft_parcing.o \
-		ft_change_the_type_2.o ft_parcing2.o ft_philo_helper_one.o \
-		routine.o ft_isdigit.o ft_split.o ft_strjoin.o ft_lstadd_back.o \
-		ft_atoi.o ft_lstlast.o ft_lstnew.o ft_strlen.o ft_substr.o ft_strdup.o \
-		activities.o
+SRS =  philo.c ft_change_the_type_1.c ft_parcing.c \
+		ft_change_the_type_2.c ft_parcing2.c ft_philo_helper_one.c \
+		routine.c ft_isdigit.c ft_split.c ft_strjoin.c ft_lstadd_back.c \
+		ft_atoi.c ft_lstlast.c ft_lstnew.c ft_strlen.c ft_substr.c ft_strdup.c \
+		activities.c
 
-RM = rm -f
+OBJS = $(SRS:.c=.o)
 
 all : $(NAME)
 	@echo "           __    _ __                       __                  "
@@ -29,16 +29,22 @@ all : $(NAME)
 	@echo "  / /_/ / / / / / / /_/ (__  ) /_/ / /_/ / / / /  __/ /  (__  ) "
 	@echo " / .___/_/ /_/_/_/\____/____/\____/ .___/_/ /_/\___/_/  /____/  "
 	@echo "/_/                              /_/                            "
-
-$(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	
-$(OBJS) : philo.h
+%.o : %.c philo.h
+	@$(CC) $(CFLAGS) -c $< -o $@
+	
+$(NAME) : $(OBJS)
+	@$(CC) $(CFLAGS) -Werror $^ -o $@
 
-clean : 
-	@$(RM) $(OBJS)
+bonus : all
+
+clean :
+	rm -f $(OBJS)
 
 fclean : clean
-	@$(RM) $(NAME)
-	
+	rm -f $(NAME)
+
+CFLAGS = -Werror -Wall -Werror 
 re : fclean all
+
+.phony : all bonus clean fclean re

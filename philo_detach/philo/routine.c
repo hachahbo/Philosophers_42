@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:08:33 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/23 14:41:41 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/07/05 09:02:20 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	check_number_philo(t_philo *philo, unsigned long time)
 {
 	if (philo->data->philo_num == 1)
 	{
-		ft_print_mutex(time, philo, "died");
+		ft_print_mutex(get_time(1) - philo->data->t_die, philo, "died");
 		pthread_mutex_unlock(&philo->fork);
 		return (0);
 	}
@@ -70,7 +70,10 @@ int	take_fork_and_eat(t_philo *philo, unsigned long time)
 	pthread_mutex_lock(&philo->fork);
 	ft_print_mutex(time, philo, "has taken a fork");
 	if (!check_number_philo(philo, time))
+	{
+		free(philo);
 		return (0);
+	}
 	pthread_mutex_lock(&philo->next->fork);
 	ft_print_mutex(time, philo, "has taken a fork");
 	if (!check_eat_time(philo, time))

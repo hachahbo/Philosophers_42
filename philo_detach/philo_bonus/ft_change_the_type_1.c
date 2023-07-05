@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:29:23 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/24 08:07:30 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/07/05 10:23:42 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,21 @@ int	check_f(char **av)
 	return (1);
 }
 
+void	ft_free_ulst(char **ult_str, int *t, char *str)
+{
+	int	i;
+
+	i = 0;
+	while (ult_str[i])
+	{
+		free(ult_str[i]);
+		i++;
+	}
+	free(t);
+	free(str);
+	free(ult_str);
+}
+
 int	*tableau(char **av, int ac)
 {
 	char	**ult_str;
@@ -67,7 +82,7 @@ int	*tableau(char **av, int ac)
 		return (free(t), NULL);
 	i = 0;
 	if (!ft_parcing(ult_str, st.size))
-		return (0);
+		return (ft_free_ulst(ult_str, t, str), NULL);
 	while (ult_str[i])
 	{
 		t[i] = ft_atoi(ult_str[i]);

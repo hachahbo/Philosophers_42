@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:48:13 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/06/24 08:09:20 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/07/05 09:02:43 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ int	inits_st(t_list *philo, int *tab, int ac)
 	while (i < 4)
 	{
 		if (tab[i] <= 0)
-			return (6);
+			return (free(tab), 6);
 		i++;
 	}
 	if (ac == 6)
 	{
 		philo->eat_time = tab[i];
 		if (philo->eat_time <= 0)
-			return (6);
+			return (free(tab), 6);
 	}
 	return (0);
 }
